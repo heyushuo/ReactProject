@@ -1,8 +1,22 @@
-var React=require("react");
+import React from 'react';
+import ReactDom from 'react-dom';
+import ComponentHeader from './components/header';
 
-var ReactDom=require("react-dom");
+class HomeIndex extends React.Component{
+	render(){
+		return (
+			<div>
+				<ComponentHeader />
+				<div className="main">
+					我是body部分
+				</div>
+			</div>
+
+		)
+	}
+}
 
 ReactDom.render(
-	<h1>Hello World</h1>,
-	document.getelementById("example")
+	<HomeIndex />,
+	document.getElementById("example")
 )
