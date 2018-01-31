@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import MainChild from './mainChild'
 
 const defaultProps={
@@ -35,6 +36,12 @@ export default class ComponentMain extends React.Component{
 		this.setState({
 			age:50
 		})
+
+	//第一种方式通过id来获取
+		var btn=document.getElementById("btn");
+		ReactDom.findDOMNode(btn).style.background='red';
+		//第二种方式
+		this.refs.btn.style.color="yellow"
 	}
 	handleChange(e){
 		this.setState({age:e.target.value})
@@ -49,7 +56,7 @@ export default class ComponentMain extends React.Component{
 				<MainChild {...this.props} id={4} handleChange={this.handleChange} />
 
 				<div>
-					<input type="button" value="提交" onClick={this.changeUserInfo}/>
+					<input id="btn" ref='btn' type="button" value="提交" onClick={this.changeUserInfo}/>
 					<p>age :  {this.state.age}</p>
 
 					<br/>
