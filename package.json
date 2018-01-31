@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpackrun": "webpack -v",
-    "build":"webpack-dev-server --hot --inline --content-base ./"
+    "build": "webpack-dev-server --hot --inline --content-base ./"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +15,8 @@
     "babel-preset-react": "^6.11.1",
     "babelify": "^7.3.0",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-mixin": "^2.0.2"
   },
   "devDependencies": {
     "babel-loader": "^6.4.1",

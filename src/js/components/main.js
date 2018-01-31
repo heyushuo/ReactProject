@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import MainChild from './mainChild'
-
+import MixinLog from './mixins'
+import ReactMixin from 'react-mixin'
+//独立组件减共享   Mixins
 const defaultProps={
 	username:"我是一个默认的用户名"
 }
@@ -36,7 +38,8 @@ export default class ComponentMain extends React.Component{
 		this.setState({
 			age:50
 		})
-
+		MixinLog.log();
+		MixinLog.alert()
 	//第一种方式通过id来获取
 		var btn=document.getElementById("btn");
 		ReactDom.findDOMNode(btn).style.background='red';
@@ -94,3 +97,8 @@ ComponentMain.propTypes={
 	userid:React.PropTypes.number
 }
 ComponentMain.defaultProps=defaultProps;
+
+//独立组件减共享   Mixins
+//独立组件减共享   Mixins
+
+ReactMixin(ComponentMain.prototype,MixinLog)
