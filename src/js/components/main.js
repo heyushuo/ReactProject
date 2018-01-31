@@ -1,5 +1,10 @@
 import React from 'react';
 import MainChild from './mainChild'
+
+const defaultProps={
+	username:"我是一个默认的用户名"
+}
+
 export default class ComponentMain extends React.Component{
 	constructor(){
 		super() //调用基类的所有的初始方法
@@ -40,12 +45,15 @@ export default class ComponentMain extends React.Component{
 		const html='hello&nbsp;heyushuo';
 		return (
 			<div>
-				<MainChild handleChange={this.handleChange} />
+				{/*讲这个页面父元素提供的值，传到此组件的子元素里*/}
+				<MainChild {...this.props} id={4} handleChange={this.handleChange} />
 
 				<div>
 					<input type="button" value="提交" onClick={this.changeUserInfo}/>
 					<p>age :  {this.state.age}</p>
-					{this.props.userId} {this.props.username}
+
+					<br/>
+					接收到父元素的值：{this.props.userId} {this.props.username}
 				</div>
 				<h2>我是主题部分</h2>
 				<p>{ username==''?'用户还没有登陆':'用户名'+ username }</p>
@@ -75,3 +83,7 @@ export default class ComponentMain extends React.Component{
 		)
 	}
 }
+ComponentMain.propTypes={
+	userid:React.PropTypes.number
+}
+ComponentMain.defaultProps=defaultProps;
