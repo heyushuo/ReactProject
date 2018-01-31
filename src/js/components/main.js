@@ -1,6 +1,16 @@
 import React from 'react';
-
+import MainChild from './mainChild'
 export default class ComponentMain extends React.Component{
+	constructor(){
+		super() //调用基类的所有的初始方法
+		this.state = {
+			username:"xiaoliang",
+			age:20
+		}
+		this.changeUserInfo = this.changeUserInfo.bind(this,99);
+		this.handleChange   =this.handleChange.bind(this);
+	}
+
 
 	componentWillMount(){
 		//组件将要加载时
@@ -10,15 +20,31 @@ export default class ComponentMain extends React.Component{
 	componentDidMount(){
 		console.log("组件加载完调用");
 	}
-
-
+	//传参数的形式
+	/*changeUserInfo(age){
+		this.setState({
+			age:age
+		})
+	}*/
+	changeUserInfo(){
+		this.setState({
+			age:50
+		})
+	}
+	handleChange(e){
+		this.setState({age:e.target.value})
+	}
 	render(){
 		let username="heyushuo";
 		const flag=false;
 		const html='hello&nbsp;heyushuo';
 		return (
 			<div>
+				<MainChild handleChange={this.handleChange} />
+
 				<div>
+					<input type="button" value="提交" onClick={this.changeUserInfo}/>
+					<p>age :  {this.state.age}</p>
 					{this.props.userId} {this.props.username}
 				</div>
 				<h2>我是主题部分</h2>
