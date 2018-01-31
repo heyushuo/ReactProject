@@ -8,7 +8,7 @@ class HomeIndex extends React.Component{
 		return (
 			<div>
 				<ComponentHeader />
-				<ComponentMain/>
+				<ComponentMain userId ={123456} username={"何玉硕"} />
 				<ComponentFooter />
 			</div>
 

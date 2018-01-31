@@ -11,13 +11,16 @@ export default class ComponentMain extends React.Component{
 		console.log("组件加载完调用");
 	}
 
-	
+
 	render(){
 		let username="heyushuo";
 		const flag=false;
 		const html='hello&nbsp;heyushuo';
 		return (
 			<div>
+				<div>
+					{this.props.userId} {this.props.username}
+				</div>
 				<h2>我是主题部分</h2>
 				<p>{ username==''?'用户还没有登陆':'用户名'+ username }</p>
 				<p><input type="button" value={username} disabled={flag} /></p>
