@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-
+import {Link} from 'react-router'
 export default class Header extends React.Component{
 	constructor(){
 		super();
@@ -27,9 +27,22 @@ export default class Header extends React.Component{
 			}
 		}
 		return (
-			<header className={ this.state.flage ? "smallFont" : ""} style={style.header} onClick={this.changeStyle} >
-				<h1>我是头部 我的老大是何玉硕 我是头部 我是头部</h1>
-			</header>
+			<div>
+				<ul>
+					<li>
+						<Link to={'/'}>首页</Link>
+					</li>
+					<li>
+						<Link to={'/list'}>列表</Link>
+					</li>
+					<li>
+						<Link to={'/detail'}>详情</Link>
+					</li>
+				</ul>
+				<header className={ this.state.flage ? "smallFont" : ""} style={style.header} onClick={this.changeStyle} >
+					<h1>我是头部 我的老大是何玉硕 我是头部 我是头部</h1>
+				</header>
+			</div>
 		)
 	}
 }

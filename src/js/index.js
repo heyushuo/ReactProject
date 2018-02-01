@@ -4,10 +4,14 @@ import ComponentHeader from './components/header';
 import ComponentFooter from './components/footer';
 import ComponentMain from './components/main';
 import "antd/dist/antd.css"
-class HomeIndex extends React.Component{
+export default class HomeIndex extends React.Component{
 	render(){
 		return (
 			<div>
+				<div>
+					{this.props.children}
+				</div>
+
 				<ComponentHeader />
 				<ComponentMain userId ={123456} username={"何玉硕"} />
 				<ComponentFooter />
@@ -17,7 +21,7 @@ class HomeIndex extends React.Component{
 	}
 }
 
-ReactDom.render(
+/*ReactDom.render(
 	<HomeIndex />,
 	document.getElementById("example")
-)
+)*/
