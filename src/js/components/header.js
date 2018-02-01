@@ -2,6 +2,19 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 export default class Header extends React.Component{
+	constructor(){
+		super();
+		this.state={
+			flage:false
+		}
+		this.changeStyle=this.changeStyle.bind(this);
+	}
+
+	changeStyle(){
+		this.setState({
+			flage:!this.state.flage
+		})
+	}
 	render(){
 		//需要放到render函数里边
 		//行内样式
@@ -9,12 +22,12 @@ export default class Header extends React.Component{
 			header: {
 				color: "red",
 				backgroundColor: "yellow",
-				paddingTop: "15px",
+				paddingTop: (this.state.flage)? "3px" : "50px" ,
 				paddingBottom: "20px"
 			}
 		}
 		return (
-			<header className="smallFont" style={style.header} >
+			<header className={ this.state.flage ? "smallFont" : ""} style={style.header} onClick={this.changeStyle} >
 				<h1>我是头部 我的老大是何玉硕 我是头部 我是头部</h1>
 			</header>
 		)
