@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import ComponentHeader from './components/header';
 import ComponentFooter from './components/footer';
 import ComponentMain from './components/main';
+import "antd/dist/antd.css"
 class HomeIndex extends React.Component{
 	render(){
 		return (
